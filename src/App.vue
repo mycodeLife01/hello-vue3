@@ -1,13 +1,13 @@
 <template>
-    <Person/>
+    <TestRef/>
 </template>
 
 <script lang="ts">
-import Person from './components/Person.vue';
+import TestRef from './components/TestRef.vue';
 export default {
     name: 'App',
     components: {
-        Person
+        TestRef
     }
 }
 </script>
