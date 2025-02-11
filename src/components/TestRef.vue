@@ -59,11 +59,11 @@ let house = reactive({ price: 8888888, position: 'Shanghai' })
 let games = reactive([{ name: '鸣潮', heat: 666666 }, { name: '荒野大镖客', heat: 999999 }, { name: '最后生还者2', heat: 333333 }])
 
 function addHousePrice() {
-    house.price = house.price + 100000
+    house.price+= 100000
 }
 
 function addHeatForFirstGame() {
-    games[0].heat = games[0].heat + 1000
+    games[0].heat+= 1000
 }
 
 
