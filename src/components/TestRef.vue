@@ -13,7 +13,6 @@
             <button @click="showTel">展示号码</button>
         </div>
     </div>
-
     <hr>
     <!-- Reactive的基本使用 -->
     <h1>Reactive的基本使用</h1>
@@ -32,10 +31,24 @@
             </li>
         </ul>
     </div>
+    <hr>
+    <!-- toRefs和toRef -->
+    <h1>toRefs和toRef</h1>
+    <div class="test-toRefs">
+        <div class="basic">
+            <h2>银行账户是：{{ bank.account }}</h2>
+            <h2>账户余额是：{{ bank.balance }}</h2>
+            <h2>账户余额(toRef)是：{{ balance_ref }}</h2>
+        </div>
+        <div class="operations">
+            <button @click="changeAccount">改名</button>
+            <button @click="changeBalance">充值</button>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts" name="pp">
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, toRefs, toRef } from 'vue';
 
 // ref的基本使用
 let name = ref('James')
@@ -59,11 +72,24 @@ let house = reactive({ price: 8888888, position: 'Shanghai' })
 let games = reactive([{ name: '鸣潮', heat: 666666 }, { name: '荒野大镖客', heat: 999999 }, { name: '最后生还者2', heat: 333333 }])
 
 function addHousePrice() {
-    house.price+= 100000
+    house.price += 100000
 }
 
 function addHeatForFirstGame() {
-    games[0].heat+= 1000
+    games[0].heat += 1000
+}
+
+//toRefs和toRef
+let bank = reactive({account: 'abc', balance: 500})
+let {account, balance} = toRefs(bank) //toRefs会把响应式对象里的每个属性解构成一个个单独的响应式数据,toRef只结构某一个属性
+let balance_ref = toRef(bank, 'balance')
+
+function changeAccount() {
+    account.value += 'c'
+}
+
+function changeBalance() {
+    balance.value += 100
 }
 
 

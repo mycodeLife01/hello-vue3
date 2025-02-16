@@ -1,22 +1,15 @@
 <template>
-    <TestRef/>
+    <!-- <TestRef/> -->
+    <!-- <TestComputed /> -->
+    <!-- <TestWatch/> -->
+    <TestWatchEffect />
 </template>
 
-<script lang="ts">
+<script setup>
 import TestRef from './components/TestRef.vue';
-export default {
-    name: 'App',
-    components: {
-        TestRef
-    }
-}
+import TestComputed from './components/TestComputed.vue';
+import TestWatch from './components/TestWatch.vue';
+import TestWatchEffect from './components/TestWatchEffect.vue';
 </script>
 
-<style scoped>
-.app {
-    background-color: #ddd;
-    box-shadow: 0 0 10px;
-    border-radius: 10px;
-    padding: 20px;
-}
-</style>
+<style scoped></style>
